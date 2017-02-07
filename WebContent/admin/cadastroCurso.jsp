@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -49,23 +50,23 @@
           <h1>Gerenciador de trabalhos escolares</h1>
           <h2 class="sub-header">Novo Curso</h2>
           <div class="">
-            <form action="curso" action="method">
+            <form action="curso" method="post">
              
               <div class="form-group">
                 <label for="nomeCurso">Nome: </label>
                 <input type="text" class="form-control" id="nomeCurso" name="nomeCurso" placeholder="Nome do curso">
               </div>
-              
+              <jsp:useBean id="escola" class="br.com.fiap.bean.ProfessoresBean" />
               <div class="form-group">
                 <label for="escola">Seleciona a Escola do aluno: </label>
-                <select class="form-control" id="idescola" name="idescola">
-                  <option value="1">Fiap</option>
-                  <option value="2">Unip</option>
-                  <option value="3">FMU</option>
+               <select class="form-control" name="idescola">
+                  <c:forEach var="esc" items="${escola.listaEscola}" >
+                  <option value="${esc.idescola}">${esc.nomeEscola}</option>
+                  </c:forEach>
           		</select>
               </div>
               
-                            
+               ${msg}             
               <div class="form-group">
               	<input type="submit" class="btn btn-success" id="salvar" value="Cadastrar novo curso" >
               </div>

@@ -74,14 +74,7 @@
                   <option value="22">Matemática</option>
           		</select>
               </div>
-              <div class="form-group">
-                <label for="escola">Selecione a disciplina: </label>
-                <select class="form-control" id="iddisciplina" name="iddisciplina">
-                  <option value="31">Calculo 1</option>
-                  <option value="32">Java 1</option>
-                  <option value="33">Banco de dados</option>
-          		</select>
-              </div>
+              
               
               <div class="form-group">
               	<input type="submit" class="btn btn-success" id="salvar" value="Cadastrar novo aluno" >

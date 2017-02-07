@@ -40,18 +40,19 @@ public class DisciplinaServlet extends HttpServlet{
 		try {
 			String nomeDisciplina = request.getParameter("nomeDisciplina");
 			int idcurso = Integer.parseInt(request.getParameter("idcurso")); 
-			int idProfessor = Integer.parseInt(request.getParameter("idProfessor"));
+			
 			
 			Disciplina disciplina = new Disciplina();
+			disciplina.setNomeDisciplna(nomeDisciplina);
 			disciplina.setIdCurso(idcurso);
-			disciplina.setIdProfessor(idProfessor);
+			
 					
 			
 			
 			GenericDao<Disciplina> dao = new GenericDao(Disciplina.class); 
 			dao.adicionar(disciplina);			
-			request.setAttribute("msg", "Curso cadastrado "+ disciplina.getNomeDisciplna());
-			request.getRequestDispatcher("admin/cadastroDisciplina.jsp").forward(request, response);
+			request.setAttribute("msg", "Disciplina cadastrada "+ disciplina.getNomeDisciplna());
+			request.getRequestDispatcher("cadastroDisciplina.jsp").forward(request, response);
 
 			System.out.println("Disciplina Cadastrada");
 		} catch (Exception e) {

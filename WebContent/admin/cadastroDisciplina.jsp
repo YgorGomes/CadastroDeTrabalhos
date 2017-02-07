@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -55,24 +56,18 @@
                 <label for="nomeDisciplina">Nome: </label>
                 <input type="text" class="form-control" id="nomeDisciplina" name="nomeDisciplina" placeholder="Nome do disciplina">
               </div>
-                            
+             
+              <jsp:useBean id="cursos" class="br.com.fiap.bean.CursosBean" />
               <div class="form-group">
-                <label for="curso">Seleciona o curso vinculado à esta disciplina: </label>
-                <select class="form-control" id="idcurso" name="idcurso">
-                  <option value="1">Administração</option>
-                  <option value="2">Sistemas de Informação</option>
-                  <option value="3">Matemática</option>
+                <label for="curso">Curso vinculado à disciplina: </label>
+                <select class="form-control" name="idcurso">
+                  <c:forEach var="curs" items="${cursos.listaCursos}" >
+                  <option value="${curs.idCurso}">${curs.nomeCurso}</option>
+                  </c:forEach>
           		</select>
               </div>
-              <div class="form-group">
-                <label for="escola">Selecione um professor para disciplina: </label>
-                <select class="form-control" id="idProfessor" name="idProfessor">
-                  <option value="João">João</option>
-                  <option value="Maria">Maria</option>
-                  <option value="Carlos">Carlos</option>
-          		</select>
-              </div>
-              
+             
+              ${msg} 
               <div class="form-group">
               	<input type="submit" class="btn btn-success" id="salvar" value="Cadastrar nova disciplina" >
               </div>

@@ -13,7 +13,7 @@ public class Cursos implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name="IDCURSO")
+	@Column(name="IDCURSOS")
 	private int idCurso;
 	
 	@Column(name="NOMECURSO")

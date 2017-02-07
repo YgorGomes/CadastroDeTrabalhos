@@ -43,11 +43,12 @@ public class CursoServlet extends HttpServlet{
 			
 			Cursos curso = new Cursos();
 			curso.setNomeCurso(nomeCurso);
+			curso.setIdEscola(idescola);
 						
 			GenericDao<Cursos> dao = new GenericDao(Cursos.class); 
 			dao.adicionar(curso);			
 			request.setAttribute("msg", "Curso cadastrado "+ curso.getNomeCurso());
-			request.getRequestDispatcher("admin/cadastroCurso.jsp").forward(request, response);
+			request.getRequestDispatcher("cadastroCurso.jsp").forward(request, response);
 
 			System.out.println("Curso Cadastrado");
 		} catch (Exception e) {

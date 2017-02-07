@@ -14,10 +14,10 @@ import javax.servlet.http.HttpSession;
 
 import br.com.fiap.entity.Usuario;
 
-@WebFilter("/admin/*")
-public class FilterLogin implements Filter {
+@WebFilter("/professor/*")
+public class FilterpProfessor implements Filter {
 
-    public FilterLogin() {
+    public FilterpProfessor() {
         // TODO Auto-generated constructor stub
     }
 
